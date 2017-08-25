@@ -3375,7 +3375,8 @@ static int wait_for_timeline(struct i915_gem_timeline *tl, unsigned int flags)
 	return 0;
 }
 
-static int wait_for_engine(struct intel_engine_cs *engine, int timeout_ms)
+static __maybe_unused int wait_for_engine(
+	struct intel_engine_cs *engine, int timeout_ms)
 {
 	return wait_for(intel_engine_is_idle(engine), timeout_ms);
 }
